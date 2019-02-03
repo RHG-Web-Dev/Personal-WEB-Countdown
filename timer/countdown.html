@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  
+  <meta property="og:site_name" content="RHG#0822">
+  <meta name="title" content="Rusty R. Huskey">
+  <meta name="description" content="Current countdowns">
+  <meta name="theme-color" content="#36393f">
+  <meta property="og:image" content="/favicon.ico">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="256">
+  <meta property="og:image:height" content="256">
+  
+  <title>Slides &middot; Rusty R. Huskey</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin">
+  <link rel="stylesheet" href="/assets/tether/tether.min.css">
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/soundcloud-plugin/style.css">
+  <link rel="stylesheet" href="/assets/animate.css/animate.min.css">
+  <link rel="stylesheet" href="/assets/theme/css/style.css">
+  <link rel="stylesheet" href="/assets/mobirise/css/mbr-additional.css" type="text/css">
+    
+</head>
+<body>
+   <section class="mbr-section mbr-section-hero mbr-section-full mbr-parallax-background" id="header1-a" data-rv-view="2" style="background-image: url(/assets/images/adult-alone-blur-1172207.jpg);">
+    <!-- <div class="mbr-section mbr-section-hero mbr-section-full mbr-parallax-background" id="header1-a" data-rv-view="2" style="background-image: <span id="background">url(/assets/images/adult-alone-blur-1172207.jpg)</span>;"> -->
+    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(0, 0, 0);"></div>
+        
+    <div class="mbr-table-cell">
+
+        <div class="container">
+            <div class="row">
+                <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
+
+                    <h1 class="mbr-section-title display-1">Time Left:</h1>
+                    <p class="mbr-section-lead lead" id="count"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</section>
+    
+  <script src="/assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="/assets/tether/tether.min.js"></script>
+  <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/assets/smooth-scroll/smooth-scroll.js"></script>
+  <script src="/assets/jarallax/jarallax.js"></script>
+  <script src="/assets/viewport-checker/jquery.viewportchecker.js"></script>
+  <script src="/assets/theme/js/script.js"></script>
+  
+  
+  <input name="animation" type="hidden">
+  </body>
+</html>
+
+<script>
+  var loc = window.location.href+'';
+  if (loc.indexOf('http://')==0){
+      window.location.href = loc.replace('http://','https://');
+  }
+  
+	function countdown(endDate) {
+		let days, hours, minutes, seconds;
+		  
+		endDate = new Date(endDate).getTime();
+		  
+		if (isNaN(endDate)) { return; }
+		  
+		setInterval(calculate, 1000);
+		  
+		function calculate() {
+			let startDate = new Date();
+			startDate = startDate.getTime();
+			
+			let timeRemaining = parseInt((endDate - startDate) / 1000);
+			
+			if (timeRemaining >= 0) {
+				days = parseInt(timeRemaining / 86400);
+				timeRemaining = (timeRemaining % 86400);
+			  
+				hours = parseInt(timeRemaining / 3600);
+				timeRemaining = (timeRemaining % 3600);
+			  
+				minutes = parseInt(timeRemaining / 60);
+				timeRemaining = (timeRemaining % 60);
+			  
+				seconds = parseInt(timeRemaining);
+			  
+				/*document.getElementById("days").innerHTML = parseInt(days, 10);
+				document.getElementById("hours").innerHTML = ("0" + hours).slice(-2);
+				document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2);
+				document.getElementById("seconds").innerHTML = ("0" + seconds).slice(-2);*/
+				document.getElementById("count").innerHTML = `${parseInt(days, 10)} days, ${("0" + hours).slice(-2)} hours, ${("0" + minutes).slice(-2)} mins, ${("0" + seconds).slice(-2)} secs`
+			} else {
+				document.getElementById("count").innerHTML = `00 days, 00 hours, 00 mins, 00 secs`
+			  return;
+			}
+		}
+	}
+
+	countdown('02/32/2019 12:00:00 PM'); 
+</script>
